@@ -1,0 +1,49 @@
+Set up form for new climb requests
+	Should use orderBy: 'state' filter to sort requests
+	Maybe dislpay requests in table form: http://www.w3schools.com/angular/angular_tables.asp\
+	Validation for form submit
+
+Map
+	show pins of all items in database
+	drop new pin when new request added
+	click on pin for climb info
+
+Sorting (map and list)
+	by state
+	by date
+	by climbing type
+	by your location
+
+Landing page
+	Use your location?
+	Why are you here?
+
+User Profiles
+oddsfdsfs
+
+savedItem._id
+
+	        		$scope.requests=requests;
+	        		var infoWindo = ne w google.maps.InfoWindow();
+	        	    var createMarker = function (info){
+        
+			        var marker = new google.maps.Marker({
+			            map: $scope.map,
+			            position: new google.maps.LatLng($scope.latitude, $scope.longitude),
+			            id:savedItem._id,
+			           
+			        });
+					 google.maps.event.addListener(marker, 'click', function(){
+					var contentString  = 'content';
+					infoWindow.setContent(contentString);
+					infoWindow.open($scope.map, marker);
+					});
+					$scope.markerlist.push(marker);
+				};
+				for(i=0; i<requests.length; i++){
+					createMarker(requests[i]);
+				}
+				 $scope.openInfoWindow = function(e, selectedMarker){
+        e.preventDefault();
+        google.maps.event.trigger(selectedMarker, 'click');
+    };

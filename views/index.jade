@@ -1,0 +1,58 @@
+extends layout
+
+block content
+	//- when use angular router need to put an ng view for router
+	div(ng-view)
+	header
+		include nav
+		.container
+			div.container
+				div.row
+						div.col-md-12.text-center.landing-page.intro-text
+							div.intro-lead-in
+								p Welcome To Climb Time!
+							div.intro-heading
+								p Find Climbers Near You	
+	section
+		div(ng-controller="requestController").page-2
+			div.container
+				input.form-control.search.col-md-8(type="text", placeholder="Search by state, date, area, style, or even specific rock climb!", ng-model="search")
+				div.row
+					div.col-md-12.text-center.map-page
+						div.col-md-3
+							h3.pad New request
+							form.left(ng-submit="addItem(); addMarker()")
+								.form-group
+									input.form-control(type="text", placeholder="Name", ng-model="newItem.name" required)
+								.form-group
+									input.form-control(datepicker-popup='', placeholder="Select Date" close-on-date-selection='true', ng-model='newItem.date', ng-click='opened=true', is-open='opened')
+								include states
+								include grades
+								.form-group
+									input.form-control.crag(type="text", placeholder="Crag", ng-model="newItem.crag" required)
+								.form-group
+									input.form-control(type="text", placeholder="Contact", ng-model="newItem.contact" required)
+								.form-group
+									textarea.form-control(rows='3', type="text", placeholder="Other Info" ng-model="newItem.info")
+								include styles
+								.form-group
+									input.btn.form-control.go-button(type="submit", value="Go Climbing!")
+						h3.col-md-5.pad Look who's climbing
+						div.col-md-5.requests.row.middle
+							p.users(ng-repeat = "item in items | filter: search | orderBy:'state'") 
+								climbrequests(item="item")
+								a.btn(ng-click='removeItem()', ng-hide='true') Delete
+
+
+						div.col-md-4.right
+							div(ng-app="mapsApp" ng-controller="MapCtrl")
+								div#map
+								div#class(ng-repeat="marker in markers")
+									
+
+
+
+
+								
+						
+

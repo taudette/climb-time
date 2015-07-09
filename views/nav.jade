@@ -1,0 +1,34 @@
+nav(ng-controller = "ScrollController").navbar.navbar-default.navbar-static-top
+    div.container
+        div.navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            |                     
+            span.icon-bar
+            |                     
+            span.icon-bar
+            |                     
+            span.icon-bar
+          ul.nav.navbar-nav.navbar-left
+            li                      
+              a.top-link(ng-click='gotoMap()', href='') Search Climbers
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li.hidden
+              a(href='#page-top')
+            |                     
+            li
+              a(ng-click='gotoMap()', href='') 
+            |                     
+            li
+              a(href='#portfolio')
+            |                     
+            li
+              a(href='#about') 
+            |                     
+            li
+              a(href='#team') 
+            |                     
+            li
+              a.top-link(ng-click='gotoMap()', href='') Post Request

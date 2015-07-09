@@ -1,0 +1,274 @@
+body{
+	overflow-x:hidden;
+	height: 100%;
+    font-family: Lato, sans-serif;
+}
+.angular-google-map-container {
+/*	float: right;*/
+	height: 400px;
+
+}
+
+.requests{
+	overflow-y: auto;
+	height: 600px;		
+}
+
+.body{
+	padding-top: 100px;
+}
+
+header:before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.4;
+  height: 800px;
+}
+header {
+    text-align: center;
+    color: #fff;FFFFFF
+    background-attachment: scroll;
+    background-image: url(./photos/tristan.jpg);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 800px;
+   padding-bottom: 150px;
+}
+
+.map-page{
+	height: 800px;
+  	padding: 20px;
+    padding-right: 0px;
+}
+
+/*//navbar stuff*/
+.navbar-default {
+    border-color: transparent;
+    background-color: #222;
+}
+
+.navbar-default .navbar-brand {
+    /*font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;*/
+    color: White;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand.active {
+    color: #fec503;
+}
+
+.navbar-default .navbar-collapse {
+    border-color: rgba(255,255,255,.02);
+}
+
+.navbar-default .navbar-toggle {
+    border-color: White;
+    background-color: White;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: White;
+}
+
+.navbar-default .nav li a {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: #fff;
+    font-size:110%;
+}
+
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+    outline: 0;
+    color: #fec503;
+}
+
+.navbar-default .navbar-nav>.active>a {
+    border-radius: 0;
+    color: #fff;
+    background-color: White;
+}
+
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #fff;
+    background-color: #fec503;
+}
+
+@media(min-width:768px) {
+    .navbar-default {
+        padding: 25px 0;
+        border: 0;
+        background-color: transparent;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+    }
+
+    .navbar-default .navbar-brand {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+    }
+
+    .navbar-default .navbar-nav>.active>a {
+        border-radius: 3px;
+    }
+
+    .navbar-default.navbar-shrink {
+        padding: 10px 0;
+        background-color: #222;
+    }
+
+    .navbar-default.navbar-shrink .navbar-brand {
+        font-size: 1.5em;
+    }
+}
+header .intro-text {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+}
+
+header .intro-text .intro-lead-in {
+    margin-bottom: 25px;
+    /*font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-size: 22px;
+    font-style: italic;
+    line-height: 22px;
+}
+
+header .intro-text .intro-heading {
+    margin-bottom: 25px;
+    text-transform: uppercase;
+  /*  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+@media(min-width:768px) {
+    header .intro-text {
+        padding-top: 120px;
+        padding-bottom: 200px;
+    }
+
+    header .intro-text .intro-lead-in {
+        margin-bottom: 25px;
+       /* font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+        font-size: 40px;
+        font-style: italic;
+        line-height: 40px;
+    }
+
+    header .intro-text .intro-heading {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+       /* font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+        font-size: 75px;
+        font-weight: 700;
+        line-height: 75px;
+    }
+   
+    .page-2{
+        padding-right: 30px;
+        padding-left:30px;
+    }
+}
+li{
+	list-style-type: none;
+	text-align: left;
+
+	
+}
+
+.search{
+	height:60px;
+    padding-top: 20px;
+	padding:10px;
+	margin-top: 50px;
+    font-size: 170%;
+    font-family: 'Shadows Into Light Two';
+    font-weight: bold;
+    
+}
+
+
+.page-2{
+	background-color: #FAFAFA;
+    margin-left: -10%;
+    margin-right: -10%;
+
+}
+
+/*//hides header above map*/
+.blank{
+    color: #FAFAFA;
+}
+
+
+/*for map labels*/
+.labels {
+     color: red;
+     background-color: white;
+     font-family: "Lucida Grande", "Arial", sans-serif;
+     font-size: 10px;
+     font-weight: bold;
+     text-align: center;
+     width: 40px;     
+     border: 2px solid black;
+     white-space: nowrap;
+}
+.users{
+    border-bottom:1px solid #CCC;
+    border-top:1px solid #CCC;
+    background-color: white;
+    padding-top:5px;
+}
+
+.pad{
+    padding-bottom: 15px;
+    font-size: 200%;
+    font-weight: bold;
+    letter-spacing: 2px;
+    
+}
+.form-control{
+    background-color: #FFF5E6;
+    color:#808080;
+
+}
+.go-button{
+  
+    background-color: #B84D4D;
+    color:white;
+}
+#map {
+    height:420px;
+    width:600px;
+}
+.infoWindowContent {
+    font-size:  14px !important;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
