@@ -1,9 +1,10 @@
 var requestApp = angular.module('requestApp', ['ngResource', 'ngRoute', 'uiGmapgoogle-maps', 'gm.datepickerMultiSelect']);
 
 requestApp.config(function($routeProvider) {
-    $routeProvider
-    .otherwise('/');
-    //load page using otherwise to add #/
+    $routeProvider.
+	      otherwise({
+	        redirectTo: '/'
+	      });
     
 });
 
@@ -28,10 +29,9 @@ requestApp.controller('ScrollController', ['$scope', '$location', '$anchorScroll
     };
   }]);
   requestApp.controller('requestController', function($scope, $http, $location, $anchorScroll, climbRequests){
-  });
 
-
-requestApp.controller('MapCtrl', function ($scope) {
+  	$scope.items = climbRequests.items;
+	$scope.markerList = [{}];
 
     var mapOptions = {
         zoom: 4,
@@ -45,13 +45,68 @@ requestApp.controller('MapCtrl', function ($scope) {
     
     var infoWindow = new google.maps.InfoWindow();
     
+    //this also populates climber list
     var createMarker = function (info){
         
-        var marker = new google.maps.Marker({
-            map: $scope.map,
-            position: new google.maps.LatLng(info.lat, info.long),
-            title: info.city
-        });
+		$http.get('/api/')
+		.success(function(data) {
+			for (var i = 0; i < data.length; i++) {
+				$scope.markerList.push({
+					name: data[i].name,
+					state: data[i].state,
+					grade: data[i].grade,
+					date: data[i].date,
+					info: data[i].info,
+					id: data[i]._id,
+					latitude: data[i].geo.lat,
+					longitude: data[i].geo.long
+				});	
+					
+			}
+		})
+		.error(function(data) {
+			console.log(data);
+		});
+		$scope.addItem = function(){
+		var newRequest = new climbRequests.model($scope.newItem);
+		newRequest.$save(function(savedItem){
+
+			climbRequests.items.push(savedItem);
+
+			//markers
+			var geocoder = new google.maps.Geocoder();
+ 			geocoder.geocode( { "address": savedItem.crag + ',' + savedItem.state }, function(results, status) {
+	     		if (status == google.maps.GeocoderStatus.OK && results.length > 0) {
+	        		var location = results[0].geometry.location;
+	        		$scope.latitude = location.A;
+	        		$scope.longitude = location.F; 
+	        		
+	        		$scope.newItem.geo = {id: savedItem._id, lat: location.A, long: location.F};
+	        		$http.put('/api/'+ savedItem._id, $scope.newItem.geo)
+	        			.success(function(data) {
+	        			})
+	        			.error(function(data) {
+	        				console.log(data);
+	        			});
+	        			var marker = new google.maps.Marker({
+	        				map: $scope.map,
+	        				id:savedItem._id, 
+	        				latitude: $scope.latitude, 
+	        				longitude: $scope.longitude
+	        			});
+					$scope.markerList.push(marker);	
+		     	}
+			});	
+		});
+	$scope.newItem = {};		
+    }; 
+
+
+        // var marker = new google.maps.Marker({
+        //     map: $scope.map,
+        //     position: new google.maps.LatLng(info.lat, info.long),
+        //     title: info.city
+        // });
         marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
         
         google.maps.event.addListener(marker, 'click', function(){
@@ -60,9 +115,13 @@ requestApp.controller('MapCtrl', function ($scope) {
         });
         
         $scope.markers.push(marker);
-        
-    };  
+         for (i = 0; i < markerList.length; i++){
+        createMarker(markerList[i]);
+    }
     
+        
+    };
+     
     // for (i = 0; i < markers.length; i++){
     //     createMarker(markers[i]);
     // }

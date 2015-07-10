@@ -117,4 +117,3 @@ requestApp.directive('climbrequests', function(){
 		}
 	};
 });
-

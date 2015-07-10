@@ -1,21 +1,21 @@
 body{
-	overflow-x:hidden;
-	height: 100%;
+    overflow-x:hidden;
+    height: 100%;
     font-family: Lato, sans-serif;
 }
 .angular-google-map-container {
-/*	float: right;*/
-	height: 400px;
+/*  float: right;*/
+    height: 400px;
 
 }
 
 .requests{
-	overflow-y: auto;
-	height: 600px;		
+    overflow-y: auto;
+    height: 600px;      
 }
 
 .body{
-	padding-top: 100px;
+    padding-top: 100px;
 }
 
 header:before{
@@ -46,8 +46,8 @@ header {
 }
 
 .map-page{
-	height: 800px;
-  	padding: 20px;
+    height: 800px;
+    padding: 20px;
     padding-right: 0px;
 }
 
@@ -195,17 +195,17 @@ header .intro-text .intro-heading {
     }
 }
 li{
-	list-style-type: none;
-	text-align: left;
+    list-style-type: none;
+    text-align: left;
 
-	
+    
 }
 
 .search{
-	height:60px;
+    height:60px;
     padding-top: 20px;
-	padding:10px;
-	margin-top: 50px;
+    padding:10px;
+    margin-top: 50px;
     font-size: 170%;
     font-family: 'Shadows Into Light Two';
     font-weight: bold;
@@ -214,7 +214,7 @@ li{
 
 
 .page-2{
-	background-color: #FAFAFA;
+    background-color: #FAFAFA;
     margin-left: -10%;
     margin-right: -10%;
 
@@ -262,13 +262,9 @@ li{
     background-color: #B84D4D;
     color:white;
 }
-#map {
-    height:420px;
-    width:600px;
-}
+
 .infoWindowContent {
     font-size:  14px !important;
     border-top: 1px solid #ccc;
     padding-top: 10px;
 }
-

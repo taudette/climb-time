@@ -3,17 +3,8 @@ extends layout
 block content
 	//- when use angular router need to put an ng view for router
 	div(ng-view)
-	header
-		include nav
-		.container
-			div.container
-				div.row
-						div.col-md-12.text-center.landing-page.intro-text
-							div.intro-lead-in
-								p Welcome To Climb Time!
-							div.intro-heading
-								p Find Climbers Near You	
-	section#map
+
+	section
 		div(ng-controller="requestController").page-2
 			div.container
 				input.form-control.search.col-md-8(type="text", placeholder="Search by state, date, area, style, or even specific rock climb!", ng-model="search")
@@ -45,11 +36,14 @@ block content
 
 
 						div.col-md-4.right
-							ui-gmap-google-map(center='map.center', zoom='map.zoom', options = "map.options", data-tap-disabled="true")
-								ui-gmap-marker(data-ng-repeat="marker in markerList | filter: search", coords="marker", idKey="marker", click="window()", models="models")
-									ui-gmap-window
-										div {{marker.name}}, {{marker.date}}, {{marker.crag}}
+							div(ng-controller="requestController")
+								div#map
+								div#class(ng-repeat="marker in markers")
 
 
-									
+
+
+
+								
 						
+
